@@ -1,0 +1,117 @@
+{
+  "id": 4,
+  "name": "Pushing Daisies",
+  "creator": [
+    "Bryan Fuller"
+  ],
+  "cast": [
+    "Lee Pace",
+    "Anna Friel",
+    "Chi McBride",
+    "Field Cate",
+    "Ellen Greene",
+    "Swoosie Kurtz",
+    "Kristin Chenoweth"
+  ],
+  "url": "https://upload.wikimedia.org/wikipedia/en/5/51/PushingDaisieslogo2.jpg",
+  "seasons": [
+    {
+      "series": 1,
+      "episodes": [
+        {
+          "episode": 1,
+          "title": "Pie-lette"
+        },
+        {
+          "episode": 2,
+          "title": "Dummy"
+        },
+        {
+          "episode": 3,
+          "title": "The Fun in Funeral"
+        },
+        {
+          "episode": 4,
+          "title": "Pigeon"
+        },
+        {
+          "episode": 5,
+          "title": "Girth"
+        },
+        {
+          "episode": 6,
+          "title": "Bitches"
+        },
+        {
+          "episode": 7,
+          "title": "Smell of Success"
+        },
+        {
+          "episode": 8,
+          "title": "Bitter Sweets"
+        },
+        {
+          "episode": 9,
+          "title": "Corpsicle"
+        }
+      ]
+    },
+    {
+      "series": 2,
+      "episodes": [
+        {
+          "episode": 1,
+          "title": "Bzzzzzzzzz!"
+        },
+        {
+          "episode": 2,
+          "title": "Circus, Circus"
+        },
+        {
+          "episode": 3,
+          "title": "Bad Habits"
+        },
+        {
+          "episode": 4,
+          "title": "Frescorts"
+        },
+        {
+          "episode": 5,
+          "title": "Dim Sum Lose Some"
+        },
+        {
+          "episode": 6,
+          "title": "Oh Oh Oh...It's Magic"
+        },
+        {
+          "episode": 7,
+          "title": "Robbing Hood"
+        },
+        {
+          "episode": 8,
+          "title": "Comfort Food"
+        },
+        {
+          "episode": 9,
+          "title": "The Legend of Merle McQuoddy"
+        },
+        {
+          "episode": 10,
+          "title": "The Norwegians"
+        },
+        {
+          "episode": 11,
+          "title": "Window Dressed to Kill"
+        },
+        {
+          "episode": 12,
+          "title": "Water & Power"
+        },
+        {
+          "episode": 13,
+          "title": "Kerplunk"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,2 @@
 # dependencies
 **/node_modules
-/api
-
-# data
-tv-shows.json

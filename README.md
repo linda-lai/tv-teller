@@ -1,4 +1,13 @@
-*Full Stack MERN Project*
+# TV Teller
+Building a RESTful API to practice Express, React and MongoDB in JavaScript.
+
+|[![Linda Lai](assets/contributors-linda-lai-70x70.jpg)](https://github.com/linda-lai) |
+|-----------|
+| Linda Lai |
+
+## Challenge: Full Stack MERN Project
+
+**Brief**
 
 We are going to restart the project from last week. You will have all of today and tomorrow to do this, so take the time and opportunity to learn.
 
@@ -15,18 +24,35 @@ We are going to restart the project from last week. You will have all of today a
 **Data**
 
 1. First think about how to arrange your data. This is a vital element and not to be taken lightly. Use this time as a way to get used to thinking in this new way, and representing your data as Mongo allows. As we did in the first instance, we can nest all the data for now, and look to pull the nested data out into collections down the track. The main thing is to get started with something that makes sense and that we can work with.
+   
+  ```json
+  [
+    {
+      "id": Integer,
+      "name": String,
+      "creator": Array[String, String],
+      "cast": Array[String, String],
+      "url": String,
+      "seasons": Array[Object{String, Objects}]
+    }
+  ]
+  ```
+
+![**Link to Data**](/data/) 
 
 **Express API**
 
-2. Build a very simple API. For now hard code in your data and build just one route that gives back all your data.
+1. Build a very simple API. For now hard code in your data and build just one route that gives back all your data.
 
-3. Use Postman to hit your API and see that you are getting the data back as you expect.
+2. Use Postman to hit your API and see that you are getting the data back as you expect.
+
+![**Link to Express API**](/api/) 
 
 **React**
 
-4. Use create-react-app to make a new front end project (totally separate from this API). For now, hard code the data into the app, and work on getting something simple to display.
+1. Use create-react-app to make a new front end project (totally separate from this API). For now, hard code the data into the app, and work on getting something simple to display.
 
-5. Make a Band component, and have this display. Then swap this out for a list of bands - map through your band data and have each band display (at the root).
+2. Make a Band component, and have this display. Then swap this out for a list of bands - map through your band data and have each band display (at the root).
 
 **MongoDB**
 
