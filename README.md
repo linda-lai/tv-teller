@@ -25,7 +25,7 @@ We are going to restart the project from last week. You will have all of today a
 
 1. First think about how to arrange your data. This is a vital element and not to be taken lightly. Use this time as a way to get used to thinking in this new way, and representing your data as Mongo allows. As we did in the first instance, we can nest all the data for now, and look to pull the nested data out into collections down the track. The main thing is to get started with something that makes sense and that we can work with.
    
-  ```json
+  ```
   [
     {
       "id": Integer,
@@ -33,7 +33,15 @@ We are going to restart the project from last week. You will have all of today a
       "creator": Array[String, String],
       "cast": Array[String, String],
       "url": String,
-      "seasons": Array[Object{String, Objects}]
+      "seasons": Array[
+        Object{
+          String,
+          Array[
+            Object,
+            Object
+          ]
+        }
+      ]
     }
   ]
   ```
