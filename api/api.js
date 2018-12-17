@@ -343,7 +343,7 @@ const tvArray = [
 ]
 
 // MIDDLEWARE
-app.use(express.json())
+app.use(express.json());
 
 // REQUESTS
 // 'GET' REQUEST: '/'
@@ -361,27 +361,21 @@ app.get('/shows', (req, res) => {
 app.get('/shows/:id', (req, res) => {
   const id = parseInt(req.params.id)
   const tvShow = tvArray.find( tvShow => tvShow.id === id);
+
   if (!tvShow) {
     return res.send('TV show not found!')
   }
+
   return res.send(tvShow);
 });
 
 // 'POST' REQUEST: '/shows/'
 app.post('/shows', (req, res) => {
   const { id, name, creator, cast, url, seasons } = req.body;
-  const show = { id, name, creator, cast, url, seasons};
+  const newShow = { id, name, creator, cast, url, seasons };
 
-  const { error } = validateShow(req.body);
-
-  const newShow = {
-    id: req.body.id,
-    name: req.body.name,
-    creator: req.body.creator,
-    cast: req.body.cast,
-    url: req.body.url,
-    seasons: req.body.seasons,
-  }
+  const { error } = validateShow(newShow);
+  if (error) return res.status(400).send(error.details[0].message);
 
   tvArray.push(newShow);
   return res.send(newShow);
@@ -390,34 +384,25 @@ app.post('/shows', (req, res) => {
 
 // 'PUT' REQUEST: '/shows/:id'
 app.put('/shows/:id', (req, res) => {
-  const { id } = req.params
-  const tvShow = tvArray.find(tvShow => tvShow.id === parseInt(id));
+  const id = parseInt(req.params.id)
+  const tvShow = tvArray.find(tvShow => tvShow.id === id);
+
   if (!tvShow) {
     res.status(404).send('Show not found!')
   }
+
   const { error } = validateShow(req.body);
-
-  if (error) return res.send(400).send(error.details[0].message);
-
-  const updateId = req.body.id;
-  tvShow.id = updateId;
-
-  const updateName = req.body.name;
-  tvShow.name = updateName;
-
-  const updateCreator = req.body.creator;
-  tvShow.creator = updateCreator;
+  if (error) return res.status(400).send(error.details[0].message);
   
-  const updateCast = req.body.cast;
-  tvShow.cast = updateCast;
-  
-  const updateUrl = req.body.url;
-  tvShow.url = updateUrl;
-
-  const updateSeasons = req.body.seasons;
-  tvShow.seasons = updateSeasons;
+  tvShow.id = req.body.id;
+  tvShow.name = req.body.name;
+  tvShow.creator = req.body.creator;
+  tvShow.cast = req.body.cast;
+  tvShow.url = req.body.url;
+  tvShow.seasons = req.body.seasons;
 
   res.send(tvShow);
+
 });
 
 // 'DELETE' REQUEST: '/shows/:id'
