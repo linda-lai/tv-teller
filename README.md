@@ -82,9 +82,33 @@ Data structure for a single TV show in `tvArray`:
 ![**Link to React**](/react/) 
 
 **MongoDB**
+
 5. Connect up MongoDB. If it's simpler for now, you can have just one collection, and hold that data there, returning one big complex object. Use Mongoose to do this. Set up a Mongoose schema for your data, and attach this to your API.
 
+    ```
+    $ mongod
+    $ mongoimport --jsonArray --db tvTeller --collection shows --file tv-shows.json
+    ```
+    
+    Install Mongoose package with npm:
+    ```
+    $ npm i mongoose
+    ```
+    
+    In `api.js`, remove hardcoded data values and replace with MongoDB via Mongoose:
+
+    ```js
+    const mongoose = require('mongoose');
+    
+    mongoose.connect('mongodb://localhost:27017/tvTeller')
+    const tvArray = require('./models/Show')
+    ```
+
+    Create a new models/ folder and `Show.js` file:
+    ```js
+    ```
 6. Check that this data is available from your API using Postman.
+
 
 **Advanced React**
 
