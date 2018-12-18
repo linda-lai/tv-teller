@@ -24,7 +24,8 @@ We are going to restart the project from last week. You will have all of today a
 **Data**
 
 1. First think about how to arrange your data. This is a vital element and not to be taken lightly. Use this time as a way to get used to thinking in this new way, and representing your data as Mongo allows. As we did in the first instance, we can nest all the data for now, and look to pull the nested data out into collections down the track. The main thing is to get started with something that makes sense and that we can work with.
-   
+
+Data structure for a single TV show in `tvArray`:   
   ```
   [
     {
@@ -51,6 +52,16 @@ We are going to restart the project from last week. You will have all of today a
 **Express API**
 
 1. Build a very simple API. For now hard code in your data and build just one route that gives back all your data.
+  
+    ```
+    $ mkdir api
+    $ cd api
+    $ npm init
+    $ npm install express --save
+    $ npm install --save-dev nodemon
+    $ npm start
+    ```
+
 
 2. Use Postman to hit your API and see that you are getting the data back as you expect.
 
@@ -58,20 +69,27 @@ We are going to restart the project from last week. You will have all of today a
 
 **React**
 
-1. Use create-react-app to make a new front end project (totally separate from this API). For now, hard code the data into the app, and work on getting something simple to display.
+3. Use create-react-app to make a new front end project (totally separate from this API). For now, hard code the data into the app, and work on getting something simple to display.
+   
+    ```
+    $ npx create-react-app client
+    $ cd client
+    $ npm start
+    ```
 
-2. Make a Band component, and have this display. Then swap this out for a list of bands - map through your band data and have each band display (at the root).
+4. Make a Band component, and have this display. Then swap this out for a list of bands - map through your band data and have each band display (at the root).
+
+![**Link to React**](/react/) 
 
 **MongoDB**
+5. Connect up MongoDB. If it's simpler for now, you can have just one collection, and hold that data there, returning one big complex object. Use Mongoose to do this. Set up a Mongoose schema for your data, and attach this to your API.
 
-6. Connect up MongoDB. If it's simpler for now, you can have just one collection, and hold that data there, returning one big complex object. Use Mongoose to do this. Set up a Mongoose schema for your data, and attach this to your API.
-
-7. Check that this data is available from your API using Postman.
+6. Check that this data is available from your API using Postman.
 
 **Advanced React**
 
-8. Now we have connected our API to our Mongo database (via Mongoose), and we are getting our data back from the API. We need to connect our React front-end to our Express API and have everything connected. You can do this several ways, but let's start by keeping it simple. We have all out data represented in one big structure in our MongoDB, and our API returns that structure from one route. Previously we represented the data in our React front end in the same way. So from your App component, write a function that will hit the API and return that structure. If you have this going, you will be able to take out the hard-coded data from the React side. You will need to consider lifecycle methods, and placing the data into state.
+1. Now we have connected our API to our Mongo database (via Mongoose), and we are getting our data back from the API. We need to connect our React front-end to our Express API and have everything connected. You can do this several ways, but let's start by keeping it simple. We have all out data represented in one big structure in our MongoDB, and our API returns that structure from one route. Previously we represented the data in our React front end in the same way. So from your App component, write a function that will hit the API and return that structure. If you have this going, you will be able to take out the hard-coded data from the React side. You will need to consider lifecycle methods, and placing the data into state.
 
-9.  Now our app is wired up from start to finish. Hopefully at this stage you will have a good idea of how it all fits together. From here we will start to think about ways to make the app more complex, and make some more end points for our API. We will also start to think about how to better structure our data using Mongoose. But if you have made it this far *you have created a full-stack MERN project!*
+2.  Now our app is wired up from start to finish. Hopefully at this stage you will have a good idea of how it all fits together. From here we will start to think about ways to make the app more complex, and make some more end points for our API. We will also start to think about how to better structure our data using Mongoose. But if you have made it this far *you have created a full-stack MERN project!*
 
-10. Extensions will appear here.
+3. Extensions will appear here.
