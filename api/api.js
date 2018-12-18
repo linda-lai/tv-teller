@@ -1,6 +1,7 @@
 // DEPENDENCIES
 const express = require('express');
 const Joi = require('joi'); 
+// const cors = requqire('cors')
 
 // APP & ENVIRONMENT INSTANCES
 const app = express();
@@ -344,12 +345,17 @@ const tvArray = [
 
 // MIDDLEWARE
 app.use(express.json());
+// app.use(cors());
 
 // REQUESTS
 // 'GET' REQUEST: '/'
 // (req, res) are objects => req.params, res.send
 app.get('/', (req, res) => {
   return res.send('Hello world. From 2.0 MERN API!');
+});
+
+app.get('/api', (req, res) => {
+  return res.send({message: `Hello React, I'm Express!`});
 });
 
 // 'GET' REQUEST: '/shows'
