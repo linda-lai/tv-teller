@@ -17,32 +17,28 @@ app.use(express.json());
 // app.use(cors());
 
 // REQUESTS
+// 'GET' REQUEST: '/'
 app.get('/', (req, res) => {
+  return res.send(`Hello React! I'm the Express/Mongoose API for TV Teller!`);
+});
+
+// 'GET' REQUEST: '/shows'
+app.get('/shows', (req, res) => {
   Show.find({})
     .then(docs => res.send(docs));
 });
 
-// PORT
-app.listen(port, () => {
-  console.log(`Listening at http://localhost:${port}`);
-})
-
-// // 'GET' REQUEST: '/'
-// // (req, res) are objects => req.params, res.send
-// app.get('/', (req, res) => {
-//   return res.send('Hello world. From 2.0 MERN API!');
-// });
-
-// app.get('/api', (req, res) => {
-//   return res.send({message: `Hello React, I'm Express!`});
-// });
-
-// // 'GET' REQUEST: '/shows'
 // app.get('/shows', (req, res) => {
 //   return res.send(tvArray)
 // });
 
-// // 'GET' REQUEST: '/shows/:id'
+// 'GET' REQUEST: '/shows/:id'
+app.get('/shows/:id', (req, res) => {
+  const { id } = req.params;
+  const tvShow = Show.findOne({id})
+    .then(doc => res.send(doc));
+});
+
 // app.get('/shows/:id', (req, res) => {
 //   const id = parseInt(req.params.id)
 //   const tvShow = tvArray.find( tvShow => tvShow.id === id);
@@ -55,6 +51,13 @@ app.listen(port, () => {
 // });
 
 // // 'POST' REQUEST: '/shows/'
+app.post('/shows', (req, res) => {
+  const { id, name, creator, cast, url, seasons } = req.body;
+  const newTvShow = new Show({ id, name, creator, cast, url, seasons })
+  newTvShow.save()
+    .then(doc => res.send(doc))
+});
+
 // app.post('/shows', (req, res) => {
 //   const { id, name, creator, cast, url, seasons } = req.body;
 //   const newShow = { id, name, creator, cast, url, seasons };
@@ -68,6 +71,22 @@ app.listen(port, () => {
 // })
 
 // // 'PUT' REQUEST: '/shows/:id'
+app.put('/shows/:id', (req, res) => {
+  const { id } = req.params;
+  const { name, creator, cast, url, seasons } = req.body;
+
+  Show.findOneAndUpdate(
+    { id },
+    { name, creator, cast, url, seasons },
+    {
+      new: true,
+      runValidators: true
+    }
+  )
+    .then(doc => res.send(doc));
+
+});
+
 // app.put('/shows/:id', (req, res) => {
 //   const id = parseInt(req.params.id)
 //   const tvShow = tvArray.find(tvShow => tvShow.id === id);
@@ -91,6 +110,13 @@ app.listen(port, () => {
 // });
 
 // // 'DELETE' REQUEST: '/shows/:id'
+app.delete('/shows/:id', (req, res) => {
+  const { id } = req.params;
+
+  Show.findOneAndRemove({ id })
+    .then(deletedDoc => res.send(deletedDoc))
+});
+
 // app.delete('/shows/:id', (req, res) => {
 //   const id = parseInt(req.params.id)
 //   const tvShow = tvArray.find(tvShow => tvShow.id === parseInt(id));
@@ -114,3 +140,8 @@ app.listen(port, () => {
 //   };
 //   return Joi.validate(tvShow, schema);
 // }
+
+// PORT
+app.listen(port, () => {
+  console.log(`Listening at http://localhost:${port}`);
+})
